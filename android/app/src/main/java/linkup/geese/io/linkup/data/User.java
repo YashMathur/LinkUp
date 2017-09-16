@@ -14,17 +14,30 @@ public class User {
     private Integer mUserId = -1;
     private String  mFirstName = "";
     private String  mLastName = "";
-    private String  mEmail = "";
-    private Map<String, Link> mLinks;
+    private UserType mType = null;
+    private Map<String, Proficiency> mSkills = null;
+    private Map<String, String> mContacts = null;
+    private Map<String, Link> mLinks = null;
+    private Location          mLocation = null;
 
     public User() { }
 
-    public User(Integer mUserId, String mFirstName, String mLastName, String mEmail, Map<String, Link> mLinks) {
+    public User(Integer mUserId,
+                String mFirstName,
+                String mLastName,
+                UserType mType,
+                Map<String, Proficiency> mSkills,
+                Map<String, String> mContacts,
+                Map<String, Link> mLinks,
+                Location mLocation) {
         this.mUserId = mUserId;
         this.mFirstName = mFirstName;
         this.mLastName = mLastName;
-        this.mEmail = mEmail;
+        this.mType  = mType;
+        this.mSkills = mSkills;
+        this.mContacts = mContacts;
         this.mLinks = mLinks;
+        this.mLocation = mLocation;
     }
 
     public Integer getmUserId() {
@@ -51,19 +64,43 @@ public class User {
         this.mLastName = mLastName;
     }
 
-    public String getEmail() {
-        return mEmail;
-    }
-
-    public void setEmail(String mEmail) {
-        this.mEmail = mEmail;
-    }
-
     public Map<String, Link> getLinks() {
         return mLinks;
     }
 
     public void setLinks(Map<String, Link> mLinks) {
         this.mLinks = mLinks;
+    }
+
+    public UserType getmType() {
+        return mType;
+    }
+
+    public void setmType(UserType mType) {
+        this.mType = mType;
+    }
+
+    public Map<String, Proficiency> getmSkills() {
+        return mSkills;
+    }
+
+    public void setmSkills(Map<String, Proficiency> mSkills) {
+        this.mSkills = mSkills;
+    }
+
+    public Map<String, String> getmContacts() {
+        return mContacts;
+    }
+
+    public void setmContacts(Map<String, String> mContacts) {
+        this.mContacts = mContacts;
+    }
+
+    public Location getmLocation() {
+        return mLocation;
+    }
+
+    public void setmLocation(Location mLocation) {
+        this.mLocation = mLocation;
     }
 }
