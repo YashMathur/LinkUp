@@ -69,7 +69,9 @@ public class Cache {
         }
     }
 
-
+    public void detach(){
+        Cache.mInstance.mCallback = null;
+    }
 
     public void setUser(Integer userId, @NonNull User user){
         Cache.mInstance.mUsers.put(userId.toString(), user);
