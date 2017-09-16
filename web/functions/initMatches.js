@@ -1,9 +1,10 @@
 const functions = require('firebase-functions');
 
 function initMatches(event) {
-  const original = event.data.val();
-  console.warn(original);
-  return;
+  const userId = event.data.val().mUserId;
+  return event.data.ref.parent.child('matches').set({
+    [userId]: {}
+  });
 }
 
 module.exports = functions
