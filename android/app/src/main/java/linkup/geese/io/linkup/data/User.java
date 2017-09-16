@@ -2,9 +2,6 @@ package linkup.geese.io.linkup.data;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,16 +15,16 @@ public class User {
     private String  mFirstName = "";
     private String  mLastName = "";
     private String  mEmail = "";
-    private Map<String, Connection> mConnections;
+    private Map<String, Link> mLinks;
 
     public User() { }
 
-    public User(Integer mUserId, String mFirstName, String mLastName, String mEmail, Map<String, Connection> mConnections) {
+    public User(Integer mUserId, String mFirstName, String mLastName, String mEmail, Map<String, Link> mLinks) {
         this.mUserId = mUserId;
         this.mFirstName = mFirstName;
         this.mLastName = mLastName;
         this.mEmail = mEmail;
-        this.mConnections = mConnections;
+        this.mLinks = mLinks;
     }
 
     public Integer getmUserId() {
@@ -62,11 +59,11 @@ public class User {
         this.mEmail = mEmail;
     }
 
-    public Map<String, Connection> getConnections() {
-        return mConnections;
+    public Map<String, Link> getLinks() {
+        return mLinks;
     }
 
-    public void setConnections(Map<String, Connection> mConnections) {
-        this.mConnections = mConnections;
+    public void setLinks(Map<String, Link> mLinks) {
+        this.mLinks = mLinks;
     }
 }
