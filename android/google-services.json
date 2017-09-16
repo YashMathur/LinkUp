@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "925354968994",
+    "firebase_url": "https://link-up-1629f.firebaseio.com",
+    "project_id": "link-up-1629f",
+    "storage_bucket": "link-up-1629f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:925354968994:android:5e3b86941bdc489c",
+        "android_client_info": {
+          "package_name": "linkup.geese.io.linkup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "925354968994-1dfv8772dr324kmh73c9i5tjdkacgnro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASvuOgicX1qTqjSPhbdEGArFfgAt27ggU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
