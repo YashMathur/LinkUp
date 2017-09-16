@@ -43,6 +43,7 @@ public class Cache {
         if(mInstance == null){
             Cache.mInstance = new Cache(callback);
         }
+        Cache.mInstance.mCallback = callback;
         return Cache.mInstance;
     }
 

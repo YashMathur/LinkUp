@@ -1,5 +1,6 @@
 package linkup.geese.io.linkup;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -69,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 //        cache.getUser(0);
 
         cache.setLocation(0, new Location(32.232325D, 64.235, 25, Calendar.getInstance().getTimeInMillis()));
+
+        startActivity(new Intent(this, SignInActivity.class));
+        finish();
     }
 
 

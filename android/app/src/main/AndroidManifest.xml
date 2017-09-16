@@ -3,7 +3,6 @@
     package="linkup.geese.io.linkup">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-feature android:name="android.hardware.location.gps" />
 
     <application
@@ -20,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignInActivity"></activity>
+        <activity android:name=".SignInActivity" />
+        <activity android:name=".DashboardActivity"></activity>
     </application>
 
 </manifest>
