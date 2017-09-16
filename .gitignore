@@ -1,4 +1,5 @@
 *.iml
 .gradle
+workspace.xml
 .DS_Store
 .externalNativeBuild

@@ -68,6 +68,8 @@ public class Cache {
         }
     }
 
+    
+
     public void setUser(Integer userId, @NonNull User user){
         Cache.mInstance.mUsers.put(userId.toString(), user);
     }
