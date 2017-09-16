@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         Intent locationIntent = new Intent(this, PutLocationService.class);
-        locationIntent.putExtra(KEY_USERID, "yash");
+        locationIntent.putExtra(KEY_USERID, 1);
         startService(locationIntent);
 
         Cache cache = Cache.getInstance(this);
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 //
 //        cache.getUser(0);
 
-        cache.setLocation(0, new Location(32.232325D, 64.235, 25, Calendar.getInstance().getTimeInMillis()));
+//        cache.setLocation(0, new Location(32.232325D, 64.235, 25, Calendar.getInstance().getTimeInMillis()));
 
 
     }
