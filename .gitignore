@@ -4,3 +4,4 @@ workspace.xml
 .DS_Store
 .externalNativeBuild
 node_modules/
+*.log
