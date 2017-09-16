@@ -1,5 +1,6 @@
 package linkup.geese.io.linkup;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,10 +18,15 @@ import linkup.geese.io.linkup.data.UserType;
 
 public class MainActivity extends AppCompatActivity implements IDataLoadedCallable {
 
+    public final static String KEY_USERID = "KEY_USERID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        Intent locationIntent = new Intent(this, PutLocationService.class);
+        locationIntent.putExtra(KEY_USERID, "yash");
+        startService(locationIntent);
 
         Cache cache = Cache.getInstance(this);
 
