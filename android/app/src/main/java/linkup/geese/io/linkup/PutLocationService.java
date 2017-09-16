@@ -26,7 +26,7 @@ public class PutLocationService extends Service implements IDataLoadedCallable {
 
         Cache cache = Cache.getInstance(this);
 
-        User currentUser = cache.getUser(userId);
+        cache.getUser(userId);
 
         return Service.START_NOT_STICKY;
     }
