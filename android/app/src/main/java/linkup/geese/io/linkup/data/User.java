@@ -5,6 +5,7 @@ import com.google.firebase.database.IgnoreExtraProperties;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Azhng on 2017-09-16.
@@ -17,11 +18,11 @@ public class User {
     private String  mFirstName = "";
     private String  mLastName = "";
     private String  mEmail = "";
-    private List<Connection> mConnections;
+    private Map<String, Connection> mConnections;
 
     public User() { }
 
-    public User(Integer mUserId, String mFirstName, String mLastName, String mEmail, List<Connection> mConnections) {
+    public User(Integer mUserId, String mFirstName, String mLastName, String mEmail, Map<String, Connection> mConnections) {
         this.mUserId = mUserId;
         this.mFirstName = mFirstName;
         this.mLastName = mLastName;
@@ -61,11 +62,11 @@ public class User {
         this.mEmail = mEmail;
     }
 
-    public List<Connection> getConnections() {
+    public Map<String, Connection> getConnections() {
         return mConnections;
     }
 
-    public void setConnections(List<Connection> mConnections) {
+    public void setConnections(Map<String, Connection> mConnections) {
         this.mConnections = mConnections;
     }
 }

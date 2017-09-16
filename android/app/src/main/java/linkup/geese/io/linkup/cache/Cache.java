@@ -1,6 +1,7 @@
 package linkup.geese.io.linkup.cache;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -19,13 +20,15 @@ import linkup.geese.io.linkup.data.User;
 
 public class Cache {
 
+    public static String TAG = "Cache";
+
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDbRef;
 
     private IDataLoadedCallable mCallback;
     private static Cache mInstance = null;
 
-    private Map<Integer, User> mUsers = new HashMap<>();
+    private Map<String, User> mUsers = new HashMap<>();
 
     private Cache(IDataLoadedCallable mCallback) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -50,6 +53,8 @@ public class Cache {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     User user = dataSnapshot.getValue(User.class);
+//                    User user = new User();
+
                     Cache.mInstance.mCallback.onFirebaseLoaded(user);
                 }
 
@@ -64,11 +69,11 @@ public class Cache {
     }
 
     public void setUser(Integer userId, @NonNull User user){
-        Cache.mInstance.mUsers.put(userId, user);
+        Cache.mInstance.mUsers.put(userId.toString(), user);
     }
 
     public void commit(){
-        for(Integer key : Cache.mInstance.mUsers.keySet()){
+        for(String key : Cache.mInstance.mUsers.keySet()){
             Cache.mInstance.mDbRef.child(key.toString()).setValue(Cache.mInstance.mUsers.get(key));
         }
     }
