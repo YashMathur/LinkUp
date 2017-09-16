@@ -8,15 +8,13 @@ public class Location {
 
     private Double mLongitude;
     private Double mLatitude;
-    private Integer mLocationId;
     private Long    mTimestamp;
 
     public Location() { }
 
-    public Location(Double mLongitude, Double mLatitude, Integer mLocationId, Long mTimestamp) {
+    public Location(Double mLongitude, Double mLatitude, Long mTimestamp) {
         this.mLongitude = mLongitude;
         this.mLatitude = mLatitude;
-        this.mLocationId = mLocationId;
         this.mTimestamp = mTimestamp;
     }
 
@@ -34,14 +32,6 @@ public class Location {
 
     public void setmLatitude(Double mLatitude) {
         this.mLatitude = mLatitude;
-    }
-
-    public Integer getmLocationId() {
-        return mLocationId;
-    }
-
-    public void setmLocationId(Integer mLocationId) {
-        this.mLocationId = mLocationId;
     }
 
     public Long getmTimestamp() {
