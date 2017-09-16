@@ -12,6 +12,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import linkup.geese.io.linkup.data.Location;
 import linkup.geese.io.linkup.data.User;
 
 /**
@@ -68,7 +69,7 @@ public class Cache {
         }
     }
 
-    
+
 
     public void setUser(Integer userId, @NonNull User user){
         Cache.mInstance.mUsers.put(userId.toString(), user);
@@ -78,6 +79,10 @@ public class Cache {
         for(String key : Cache.mInstance.mUsers.keySet()){
             Cache.mInstance.mDbRef.child(key.toString()).setValue(Cache.mInstance.mUsers.get(key));
         }
+    }
+
+    public void setLocation(Integer userId, @NonNull Location location){
+        Cache.mInstance.mDbRef.child(userId.toString()).child("mLocation").setValue(location);
     }
 
 }

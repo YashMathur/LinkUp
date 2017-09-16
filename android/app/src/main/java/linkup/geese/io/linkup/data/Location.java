@@ -11,6 +11,8 @@ public class Location {
     private Integer mLocationId;
     private Long    mTimestamp;
 
+    public Location() { }
+
     public Location(Double mLongitude, Double mLatitude, Integer mLocationId, Long mTimestamp) {
         this.mLongitude = mLongitude;
         this.mLatitude = mLatitude;
