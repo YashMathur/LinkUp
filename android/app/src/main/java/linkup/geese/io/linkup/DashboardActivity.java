@@ -44,9 +44,7 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
         cache = Cache.getInstance(this);
         dataModel = new ArrayList<>();
 
-//        linksList = (ListView) findViewById(R.id.db_list_view);
         recyclerView = (RecyclerView) findViewById(R.id.db_list) ;
-//        adapter = new LinksListAdapter(dataModel, getApplicationContext());
         recyclerView.setHasFixedSize(false);
 
         mLayoutManager = new LinearLayoutManager(this);
@@ -84,17 +82,13 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
 
     @Override
     public void onFirebaseLoaded(User user) {
-        Log.d("yashyash", user.getLinks().keySet().iterator().next());
         cache.getLink(user.getLinks().keySet().iterator().next());
 
     }
 
     @Override
     public void onFirebaseLinkLoaded(Link link) {
-//        Log.d("fds", link.getCandidate().getFirstName());
-//        Log.d("fds", "testcdstgcv" + link.getName());
         dataModel.add(link);
         mAdapter.notifyDataSetChanged();
-        Log.e("FFFFF", ""+ mAdapter.getItemCount());
     }
 }

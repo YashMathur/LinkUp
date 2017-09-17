@@ -2,6 +2,7 @@ package linkup.geese.io.linkup;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class ProfileFragment extends Fragment implements IDataLoadedCallable {
     private User mUser;
     private String mUserId;
     private View mView;
+    private ConstraintLayout phone, website, email, linkedin, twitter, facebook;
 
     public ProfileFragment() {}
 
@@ -45,6 +47,33 @@ public class ProfileFragment extends Fragment implements IDataLoadedCallable {
         // Inflate the layout for this fragment
         this.mView = inflater.inflate(R.layout.fragment_profile, container, false);
         Cache.getInstance(this).getUser(mUserId);
+
+
+        phone = (ConstraintLayout) this.mView.findViewById(R.id.pf_phone_container);
+        website = (ConstraintLayout) this.mView.findViewById(R.id.pf_website_container);
+        email = (ConstraintLayout) this.mView.findViewById(R.id.pf_email_container);
+
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        email.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         return this.mView;
     }
 

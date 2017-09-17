@@ -147,6 +147,7 @@ public class SignInActivity extends AppCompatActivity  {
         profileIntent.putExtra("name", user.getDisplayName());
         profileIntent.putExtra("email", user.getEmail());
         profileIntent.putExtra("UID", user.getUid());
+        profileIntent.putExtra("userId", user.getUid());
         startActivity(profileIntent);
         finish();
     }
