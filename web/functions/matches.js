@@ -31,6 +31,10 @@ function getD(
   return d;
 }
 
+function calculateMatch() {
+  return 69;
+}
+
 function updateMatches(req, res) {
   if (req.method !== 'POST') {
     res.status(403).send('Forbidden');
@@ -50,32 +54,51 @@ function updateMatches(req, res) {
 
       usersSnap.forEach((snap) => {
         const otherUser = snap.val()
-        const oUserId = otherUser.mUserId;
-        const [u1, u2] = [userId, oUserId].sort((a, b) => a - b);
-        const linkHash = `${u1}+${u2}`;
+        const otherUserId = otherUser.mUserId;
+
+        // can't match recruitor with recruitor ;)
+        if (user.mType == otherUser.mType) {
+          return;
+        }
+
+        // dont link same user LOL
+        if (userId == otherUserId) {
+          return;
+        }
+
+        const recruitor = user.mType === RECRUITOR ? user : otherUser;
+        const candidate = user.mType === CANDIDATE ? user : otherUser;
+
+        const linkHash = `${recruitor.mUserId}+${candidate.mUserId}`;
+        const matched = calculateMatch(recruitor, candidate);
 
         // no duplicate links
         if (links && links[linkHash]) {
           return;
         }
 
-        // dont link same user LOL
-        if (u1 == u2) {
-          return;
-        }
-
         if (getD(otherUser.mLocation, user.mLocation) <= MAX_D) {
-          updatePromises.push(db.ref('/links').set({
+          const createLink = db.ref('/links').set({
             [linkHash]: {
               createdAt: Date.now(),
-              u1,
-              u2
+              recruitor,
+              candidate
             }
-          }));
+          });
+
+          const pushLinks = [
+            db.ref(`/users/${userId}/links`).set({ [linkHash]: true }),
+            db.ref(`/users/${otherUserId}/links`).set({ [linkHash]: true })
+          ];
+
+          updatePromises.push(createLink);
+          updatePromises.push(Promise.all(pushLinks));
         }
       });
 
-      return Promise.all(updatePromises);
+      return Promise.all(updatePromises).then(() => {
+        res.status(200).send('OK');
+      });
     });
 }
 
