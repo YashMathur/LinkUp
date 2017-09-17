@@ -30,15 +30,6 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 
         Cache cache = Cache.getInstance(this);
 
-        Map<String, Link> link1 = new HashMap<>();
-
-        link1.put("_1", new Link(1, 3.23232323243, 24.3225432, Calendar.getInstance().getTimeInMillis()));
-
-        Map<String, Link> link2 = new HashMap<>();
-
-        link2.put("_0", new Link(0, 3.23232323243, 24.3225432, Calendar.getInstance().getTimeInMillis()));
-
-//
 //        Map<String, Proficiency> mSkills,
 //        Map<String, String> mContacts,
 //        Map<String, Link> mLinks,
