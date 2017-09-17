@@ -79,6 +79,7 @@ public class SignInActivity extends AppCompatActivity  {
         this.signinButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("click", "check");
                 loginButton.performClick();
             }
         });
@@ -125,7 +126,8 @@ public class SignInActivity extends AppCompatActivity  {
     }
 
     private void updateUI(FirebaseUser user) {
-
+        Log.d("user", user.getUid());
+        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
     }
 
 }
