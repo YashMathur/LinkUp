@@ -1,1 +1,1 @@
-exports.updateMatches = require('./updateMatches');
+exports.matches = require('./matches');
