@@ -11,24 +11,24 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class User {
 
-    private Integer mUserId = -1;
+    private String mUserId = "-1";
     private String  mFirstName = "";
     private String  mLastName = "";
     private UserType mType = null;
     private Map<String, Proficiency> mSkills = null;
     private Map<String, String> mContacts = null;
-    private Map<String, Link> mLinks = null;
+    private Map<String, Integer> mLinks = null;
     private Location          mLocation = null;
 
     public User() { }
 
-    public User(Integer mUserId,
+    public User(String mUserId,
                 String mFirstName,
                 String mLastName,
                 UserType mType,
                 Map<String, Proficiency> mSkills,
                 Map<String, String> mContacts,
-                Map<String, Link> mLinks,
+                Map<String, Integer> mLinks,
                 Location mLocation) {
         this.mUserId = mUserId;
         this.mFirstName = mFirstName;
@@ -40,11 +40,11 @@ public class User {
         this.mLocation = mLocation;
     }
 
-    public Integer getmUserId() {
+    public String getmUserId() {
         return mUserId;
     }
 
-    public void setUserId(Integer mUserId) {
+    public void setUserId(String mUserId) {
         this.mUserId = mUserId;
     }
 
@@ -64,11 +64,11 @@ public class User {
         this.mLastName = mLastName;
     }
 
-    public Map<String, Link> getLinks() {
+    public Map<String, Integer> getLinks() {
         return mLinks;
     }
 
-    public void setLinks(Map<String, Link> mLinks) {
+    public void setLinks(Map<String, Integer> mLinks) {
         this.mLinks = mLinks;
     }
 

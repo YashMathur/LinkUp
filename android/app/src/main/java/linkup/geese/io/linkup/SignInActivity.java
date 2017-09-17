@@ -1,6 +1,11 @@
 package linkup.geese.io.linkup;
 
 import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.ActionBar;
@@ -38,6 +43,8 @@ public class SignInActivity extends AppCompatActivity  {
     private EditText passwordField;
 
     private CallbackManager mCallbackManager;
+
+    private SignInActivity self;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,5 +136,11 @@ public class SignInActivity extends AppCompatActivity  {
         Log.d("user", user.getUid());
         Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
     }
+
+    public void toDashBoard(View v) {
+        startActivity(new Intent(this, DashboardActivity.class));
+        finish();
+    }
+
 
 }

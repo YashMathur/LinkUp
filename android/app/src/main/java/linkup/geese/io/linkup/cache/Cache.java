@@ -48,9 +48,9 @@ public class Cache {
     }
 
     // return the callback
-    public void getUser(Integer userId){
+    public void getUser(String userId){
         if(!Cache.mInstance.mUsers.containsKey(userId)){
-            DatabaseReference userRef = Cache.mInstance.mDbRef.child(userId.toString());
+            DatabaseReference userRef = Cache.mInstance.mDbRef.child(userId);
             ValueEventListener listener = new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
@@ -74,8 +74,8 @@ public class Cache {
         Cache.mInstance.mCallback = null;
     }
 
-    public void setUser(Integer userId, @NonNull User user){
-        Cache.mInstance.mUsers.put(userId.toString(), user);
+    public void setUser(String userId, @NonNull User user){
+        Cache.mInstance.mUsers.put(userId, user);
     }
 
     public void commit(){

@@ -30,31 +30,22 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 
         Cache cache = Cache.getInstance(this);
 
-        Map<String, Link> link1 = new HashMap<>();
 
-        link1.put("_1", new Link(1, 3.23232323243, 24.3225432, Calendar.getInstance().getTimeInMillis()));
+        Map<String, Proficiency> skills1 = new HashMap<>();
+        skills1.put("C++", Proficiency.HIGH);
+        skills1.put("Web", Proficiency.LOW);
 
-        Map<String, Link> link2 = new HashMap<>();
+        Map<String, String> contact1 = new HashMap<>();
+        contact1.put("Phone", "2232232233");
+        contact1.put("Email", "archer@email.com");
 
-        link2.put("_0", new Link(0, 3.23232323243, 24.3225432, Calendar.getInstance().getTimeInMillis()));
+        Map<String, Integer> link1 = new HashMap<>();
 
+
+        Location location1 = new Location(43.4727625, -80.5401367, Calendar.getInstance().getTimeInMillis());
 //
-//        Map<String, Proficiency> mSkills,
-//        Map<String, String> mContacts,
-//        Map<String, Link> mLinks,
-//        Location mLocation) {
-
-//        Map<String, Proficiency> skills1 = new HashMap<>();
-//        skills1.put("C++", Proficiency.HIGH);
-//        skills1.put("Web", Proficiency.LOW);
-//
-//        Map<String, String> contact1 = new HashMap<>();
-//        contact1.put("Phone", "2232232233");
-//        contact1.put("Email", "archer@email.com");
-//
-//        Location location1 = new Location(32.232325D, 64.235, 1, Calendar.getInstance().getTimeInMillis());
-//
-//        cache.setUser(0, new User(0, "Archer", "Zhang", UserType.CANDIDATE, skills1, contact1, link1, location1));
+        cache.setUser("3", new User("3", "Mohit", "M", UserType.CANDIDATE, skills1, contact1, link1, location1));
+        cache.commit();
 //
 //
 //
@@ -74,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 //
 //        cache.getUser(0);
 
-        cache.setLocation(0, new Location(32.232325D, 64.235, Calendar.getInstance().getTimeInMillis()));
+//        cache.setLocation(0, new Location(32.232325D, 64.235, Calendar.getInstance().getTimeInMillis()));
 
         startActivity(new Intent(this, SignInActivity.class));
         finish();
