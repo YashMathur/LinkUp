@@ -61,9 +61,8 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
         recyclerView.setAdapter(mAdapter);
 
 
-
-        cache.getUser("2");
-//        linksList.setAdapter(adapter);
+        SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
+        cache.getUser(prefs.getString("linkup.geese.io.loggedin", "4kQtSsnBcaS4KF202FXXuQ5oK1X2"));
 
     }
 
