@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
         SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
         String loggedIn = prefs.getString("linkup.geese.io.loggedin", "out");
         if (!loggedIn.equals("out")) {
+            GPSTracker gps = new GPSTracker(this);
+            linkup.geese.io.linkup.data.Location currentLocation = new linkup.geese.io.linkup.data.Location(gps.getLongitude(), gps.getLatitude(), Calendar.getInstance().getTimeInMillis());
+            Cache cache = Cache.getInstance(this);
+            cache.setLocation(loggedIn, currentLocation);
             Intent locationIntent = new Intent(this, PutLocationService.class);
             locationIntent.putExtra(KEY_USERID, loggedIn);
             startService(locationIntent);
