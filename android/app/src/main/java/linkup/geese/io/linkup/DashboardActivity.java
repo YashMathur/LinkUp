@@ -1,6 +1,8 @@
 package linkup.geese.io.linkup;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -74,7 +76,10 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
     }
 
     public void toProfile(View v) {
-        startActivity(new Intent(this, ProfileActivity.class));
+        SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
+        Intent i = new Intent(this, ProfileActivity.class);
+        i.putExtra("userId", prefs.getString("linkup.geese.io.loggedin", "out"));
+        startActivity(i);
     }
 
     @Override

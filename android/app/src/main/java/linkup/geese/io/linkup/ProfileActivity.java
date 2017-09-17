@@ -22,13 +22,15 @@ public class ProfileActivity extends AppCompatActivity implements IDataLoadedCal
         this.actionBar = getSupportActionBar();
         this.actionBar.hide();
 
-        this.getSupportFragmentManager().beginTransaction().add(R.id.p_fragment_container, ProfileFragment.newInstance(getIntent().getStringExtra("userId"))).commit();
-
         Intent intent = getIntent();
 
-        Cache cache = Cache.getInstance(this);
-        cache.setUser(intent.getStringExtra("UID"), new User(intent.getStringExtra("UID"), intent.getStringExtra("name").split(" ")[0], intent.getStringExtra("name").split(" ")[1]));
-        cache.commit();
+        this.getSupportFragmentManager().beginTransaction().add(R.id.p_fragment_container, ProfileFragment.newInstance(intent.getStringExtra("userId"))).commit();
+
+        if(intent.getStringExtra("UID") != null && !intent.getStringExtra("UID").isEmpty()) {
+            Cache cache = Cache.getInstance(this);
+            cache.setUser(intent.getStringExtra("UID"), new User(intent.getStringExtra("UID"), intent.getStringExtra("name").split(" ")[0], intent.getStringExtra("name").split(" ")[1]));
+            cache.commit();
+        }
     }
 
     public void goBack(View v) {
