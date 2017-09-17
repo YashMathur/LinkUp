@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
         Location location1 = new Location(43.4727625, -80.5401367, Calendar.getInstance().getTimeInMillis());
 //
         cache.setUser("3", new User("3", "Mohit", "M", UserType.CANDIDATE, skills1, contact1, link1, location1));
-        cache.commit();
+//        cache.commit();
 //
 //
 //
