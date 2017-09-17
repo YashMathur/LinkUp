@@ -36,7 +36,7 @@ public class User {
         this.mType  = mType;
         this.mSkills = mSkills;
         this.mContacts = mContacts;
-        this.mLinks = mLinks;
+//        this.mLinks = mLinks;
         this.mLocation = mLocation;
     }
 

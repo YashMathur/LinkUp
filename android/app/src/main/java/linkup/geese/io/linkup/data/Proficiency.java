@@ -5,9 +5,9 @@ package linkup.geese.io.linkup.data;
  */
 
 public enum Proficiency {
-    LOW("low"),
-    MEDIUM("medium"),
-    HIGH("high");
+    LOW("LOW"),
+    MEDIUM("MEDIUM"),
+    HIGH("HIGH");
 
     private String type;
 

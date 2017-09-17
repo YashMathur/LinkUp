@@ -1,0 +1,59 @@
+{
+  "users" : {
+    "0" : {
+      "firstName" : "Archer",
+      "lastName" : "Zhang",
+      "links" : {
+        "_1" : {
+          "date" : 1505592266635,
+          "latitude" : 3.23232323243,
+          "linkededUserId" : 1,
+          "longitude" : 24.3225432
+        }
+      },
+      "mContacts" : {
+        "Email" : "archer@email.com",
+        "Phone" : "2232232233"
+      },
+      "mLocation" : {
+        "mLatitude" : 64.235,
+        "mLocationId" : 25,
+        "mLongitude" : 32.232325,
+        "mTimestamp" : 1505592291682
+      },
+      "mSkills" : {
+        "C++" : "HIGH",
+        "Web" : "LOW"
+      },
+      "mType" : "CANDIDATE",
+      "mUserId" : 0
+    },
+    "1" : {
+      "firstName" : "Lawrence",
+      "lastName" : "Pan",
+      "links" : {
+        "_0" : {
+          "date" : 1505592266635,
+          "latitude" : 3.23232323243,
+          "linkededUserId" : 0,
+          "longitude" : 24.3225432
+        }
+      },
+      "mContacts" : {
+        "Email" : "lpan@email.com",
+        "Phone" : "2662232233"
+      },
+      "mLocation" : {
+        "mLatitude" : 43.47878984,
+        "mLongitude" : -80.53518479,
+        "mTimestamp" : 1505582594000
+      },
+      "mSkills" : {
+        "Android" : "HIGH",
+        "Web" : "LOW"
+      },
+      "mType" : "RECRUITER",
+      "mUserId" : 1
+    }
+  }
+}
