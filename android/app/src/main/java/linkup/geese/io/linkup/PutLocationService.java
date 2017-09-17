@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import linkup.geese.io.linkup.cache.Cache;
 import linkup.geese.io.linkup.cache.IDataLoadedCallable;
+import linkup.geese.io.linkup.data.Link;
 import linkup.geese.io.linkup.data.User;
 
 /**
@@ -90,6 +91,11 @@ public class PutLocationService extends Service implements IDataLoadedCallable, 
     @Override
     public void onFirebaseLoaded(User user) {
 //        Toast.makeText(this, user.getEmail(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onFirebaseLinkLoaded(Link link) {
+
     }
 
     @Override

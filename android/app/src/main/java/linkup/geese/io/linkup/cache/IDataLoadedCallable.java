@@ -1,5 +1,6 @@
 package linkup.geese.io.linkup.cache;
 
+import linkup.geese.io.linkup.data.Link;
 import linkup.geese.io.linkup.data.User;
 
 /**
@@ -8,4 +9,5 @@ import linkup.geese.io.linkup.data.User;
 
 public interface IDataLoadedCallable {
     void onFirebaseLoaded(User user);
+    void onFirebaseLinkLoaded(Link link);
 }

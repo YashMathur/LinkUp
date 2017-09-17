@@ -12,6 +12,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import linkup.geese.io.linkup.data.Link;
 import linkup.geese.io.linkup.data.Location;
 import linkup.geese.io.linkup.data.User;
 
@@ -25,16 +26,19 @@ public class Cache {
 
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDbRef;
+    private DatabaseReference mLinksDbRef;
 
     private IDataLoadedCallable mCallback;
     private static Cache mInstance = null;
 
     private Map<String, User> mUsers = new HashMap<>();
+    private Map<String, Link> mLinks = new HashMap<>();
 
     private Cache(IDataLoadedCallable mCallback) {
         this.mDatabase = FirebaseDatabase.getInstance();
         this.mDatabase.setPersistenceEnabled(true);
         this.mDbRef    = mDatabase.getReference("users");
+        this.mLinksDbRef    = mDatabase.getReference("links");
         this.mCallback = mCallback;
 
     }
@@ -55,7 +59,7 @@ public class Cache {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     User user = dataSnapshot.getValue(User.class);
-//                    User user = new User();
+//                  User user = new User();
 
                     Cache.mInstance.mCallback.onFirebaseLoaded(user);
                 }
@@ -67,6 +71,28 @@ public class Cache {
             userRef.addValueEventListener(listener);
         }else{
             Cache.mInstance.mCallback.onFirebaseLoaded(Cache.mInstance.mUsers.get(userId));
+        }
+    }
+
+    public void getLink(final String linkId){
+        if(!Cache.mInstance.mLinks.containsKey(linkId)){
+            DatabaseReference userRef = Cache.mInstance.mLinksDbRef.child(linkId);
+            ValueEventListener listener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Log.d("data spanshot", ""+dataSnapshot.exists());
+                    Link link = dataSnapshot.getValue(Link.class);
+
+                    Cache.mInstance.mCallback.onFirebaseLinkLoaded(link);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            };
+            userRef.addValueEventListener(listener);
+        }else{
+            Cache.mInstance.mCallback.onFirebaseLinkLoaded(Cache.mInstance.mLinks.get(linkId));
         }
     }
 

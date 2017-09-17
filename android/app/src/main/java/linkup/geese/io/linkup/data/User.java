@@ -17,7 +17,7 @@ public class User {
     private UserType mType = null;
     private Map<String, Proficiency> mSkills = null;
     private Map<String, String> mContacts = null;
-    private Map<String, Integer> mLinks = null;
+    private Map<String, Boolean> mLinks = null;
     private Location          mLocation = null;
 
     public User() { }
@@ -28,7 +28,7 @@ public class User {
                 UserType mType,
                 Map<String, Proficiency> mSkills,
                 Map<String, String> mContacts,
-                Map<String, Integer> mLinks,
+                Map<String, Boolean> mLinks,
                 Location mLocation) {
         this.mUserId = mUserId;
         this.mFirstName = mFirstName;
@@ -64,11 +64,11 @@ public class User {
         this.mLastName = mLastName;
     }
 
-    public Map<String, Integer> getLinks() {
+    public Map<String, Boolean> getLinks() {
         return mLinks;
     }
 
-    public void setLinks(Map<String, Integer> mLinks) {
+    public void setLinks(Map<String, Boolean> mLinks) {
         this.mLinks = mLinks;
     }
 
