@@ -11,7 +11,7 @@ import java.util.Map;
 @IgnoreExtraProperties
 public class User {
 
-    private Integer mUserId = -1;
+    private String mUserId = "-1";
     private String  mFirstName = "";
     private String  mLastName = "";
     private UserType mType = null;
@@ -22,7 +22,7 @@ public class User {
 
     public User() { }
 
-    public User(Integer mUserId,
+    public User(String mUserId,
                 String mFirstName,
                 String mLastName,
                 UserType mType,
@@ -40,11 +40,11 @@ public class User {
         this.mLocation = mLocation;
     }
 
-    public Integer getmUserId() {
+    public String getmUserId() {
         return mUserId;
     }
 
-    public void setUserId(Integer mUserId) {
+    public void setUserId(String mUserId) {
         this.mUserId = mUserId;
     }
 
