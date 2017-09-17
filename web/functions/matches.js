@@ -3,7 +3,7 @@ const admin = require("firebase-admin");
 
 // max distance is 100m
 const MAX_D = 100;
-const RECRUITOR = 'RECRUITOR';
+const RECRUITER = 'RECRUITER';
 const CANDIDATE = 'CANDIDATE';
 
 admin.initializeApp(functions.config().firebase);
@@ -56,7 +56,7 @@ function updateMatches(req, res) {
         const otherUser = snap.val()
         const otherUserId = otherUser.mUserId;
 
-        // can't match recruitor with recruitor ;)
+        // can't match recruiter with recruiter ;)
         if (user.mType == otherUser.mType) {
           return;
         }
@@ -66,11 +66,11 @@ function updateMatches(req, res) {
           return;
         }
 
-        const recruitor = user.mType === RECRUITOR ? user : otherUser;
+        const recruiter = user.mType === RECRUITER ? user : otherUser;
         const candidate = user.mType === CANDIDATE ? user : otherUser;
 
-        const linkHash = `${recruitor.mUserId}+${candidate.mUserId}`;
-        const matched = calculateMatch(recruitor, candidate);
+        const linkHash = `${recruiter.mUserId}+${candidate.mUserId}`;
+        const matched = calculateMatch(recruiter, candidate);
 
         // no duplicate links
         if (links && links[linkHash]) {
@@ -81,7 +81,7 @@ function updateMatches(req, res) {
           const createLink = db.ref('/links').set({
             [linkHash]: {
               createdAt: Date.now(),
-              recruitor,
+              recruiter,
               candidate
             }
           });
