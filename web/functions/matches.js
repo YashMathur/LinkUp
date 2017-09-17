@@ -104,7 +104,7 @@ function updateMatches(req, res) {
         }
 
         if (getD(otherUser.mLocation, user.mLocation) <= MAX_D) {
-          const createLink = db.ref('/links').set({
+          const createLink = db.ref('/links').update({
             [linkHash]: {
               createdAt: Date.now(),
               recruiter,
@@ -114,8 +114,8 @@ function updateMatches(req, res) {
           });
 
           const pushLinks = [
-            db.ref(`/users/${userId}/links`).set({ [linkHash]: true }),
-            db.ref(`/users/${otherUserId}/links`).set({ [linkHash]: true })
+            db.ref(`/users/${userId}/links`).update({ [linkHash]: true }),
+            db.ref(`/users/${otherUserId}/links`).update({ [linkHash]: true })
           ];
 
           updatePromises.push(createLink);
