@@ -6,4 +6,518 @@
     android:layout_height="match_parent"
     tools:context="linkup.geese.io.linkup.EditProfileActivity">
 
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ep_header_bar_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        android:background="@android:color/white"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="4dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/close"
+            android:layout_width="wrap_content"
+            android:onClick="goBack"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Save"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:onClick="goBack"
+            android:clickable="true"
+            android:layout_marginEnd="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="wrap_content"/>
+
+
+        <TextView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Edit Profile"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="#000000"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ScrollView
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/ep_header_bar_container"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/pf_personal_container"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:elevation="6dp"
+                android:background="@drawable/rounded_corner_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/pf_heading"
+                    android:background="#e63863"
+                    android:src="#e63863"
+                    android:scaleType="fitXY"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="99dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/pf_profile_pic"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="32dp"
+                    android:elevation="6dp"
+                    android:src="@mipmap/girl1252995_12803"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp" />
+
+                <TextView
+                    android:id="@+id/ep_profile_head"
+                    android:text="Profile"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="normal"
+                    android:textColor="#dd000000"
+                    android:lineSpacingExtra="10sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/pf_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_name"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ep_profile_head"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_perm_identity_black_24dp"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="John Hodges"
+                        android:id="@+id/ep_name_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_kicker"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@+id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@drawable/suitcase"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="Senior Software Developer at Apple"
+                        android:id="@+id/ep_kicker_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:id="@+id/ep_basic_head"
+                    android:text="Basic Infomation"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="normal"
+                    android:textColor="#64494e"
+                    android:lineSpacingExtra="3sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ep_kicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_phone"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_basic_head"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@drawable/call"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="+1 (909) 123 2134"
+                        android:id="@+id/ep_phone_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_website"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_phone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@drawable/website"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="www.johnhodges.com"
+                        android:id="@+id/ep_website_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ep_email"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_website"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@mipmap/close_envelope"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="johnhodges@gmail.com"
+                        android:id="@+id/ep_email_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_name"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+
+                <TextView
+                    android:id="@+id/ep_social_head"
+                    android:text="Social Media"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textSize="14sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="normal"
+                    android:textColor="#64494e"
+                    android:lineSpacingExtra="3sp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintTop_toBottomOf="@+id/ep_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ep_linkedin"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintTop_toBottomOf="@id/ep_social_head"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@mipmap/linkedin_logo"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="www.linkedin.com/in/johnhodges"
+                        android:id="@+id/ep_linkedin_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_linkedin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+
+                <LinearLayout
+                    android:id="@+id/ep_twitter"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_linkedin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@mipmap/twitter"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="\@johnhodges"
+                        android:id="@+id/ep_twitter_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_linkedin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_fb"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_twitter"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@mipmap/facebook_letter_logo"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text="www.facebook.com/johnhodges"
+                        android:id="@+id/ep_fb_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_linkedin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:id="@+id/ep_yt"
+                    android:orientation="horizontal"
+                    android:background="#ffffff"
+                    app:layout_constraintTop_toBottomOf="@id/ep_fb"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="0dp"
+                    android:gravity="center_vertical"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_margin="16dp"
+                        android:src="@drawable/youtube"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp" />
+
+                    <EditText
+                        android:text=""
+                        android:hint="Youtube channel URL"
+                        android:id="@+id/ep_yt_content"
+                        android:background="@drawable/background_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <View
+                    app:layout_constraintTop_toBottomOf="@id/ep_linkedin"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/rounded_corner_card"
+                    android:layout_width="337dp"
+                    android:layout_height="1dp" />
+
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/pf_about_container"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:elevation="6dp"
+                android:background="@drawable/rounded_corner_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/pf_abm_title"
+                    android:text="About me"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_width="353dp"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="normal"
+                    android:textColor="#dd000000"
+                    android:padding="16dp"
+                    android:background="#fafafa"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:text="Listener. Question-asker.  Connector of dots.I believe that business is personal. Every experience matters. From telephone greetings, website usability, or the tone within online communities, each of the…"
+                    android:background="#ffffff"
+                    android:padding="16dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pf_abm_title"/>
+
+
+
+            </android.support.constraint.ConstraintLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

@@ -69,6 +69,7 @@ public class SignInActivity extends AppCompatActivity  {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                Log.e(loginResult.getRecentlyGrantedPermissions().toArray()[0].toString(), loginResult.getRecentlyGrantedPermissions().toArray()[1].toString());
                 handleFacebookAccessToken(loginResult.getAccessToken());
             }
 
@@ -114,6 +115,7 @@ public class SignInActivity extends AppCompatActivity  {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithCredential:success");
+
                         FirebaseUser user = mAuth.getCurrentUser();
                         updateUI(user);
                     } else {
@@ -135,10 +137,18 @@ public class SignInActivity extends AppCompatActivity  {
     }
 
     private void updateUI(FirebaseUser user) {
-        Log.d("user", user.getUid());
+        Intent locationIntent = new Intent(this, PutLocationService.class);
+        locationIntent.putExtra(MainActivity.KEY_USERID, user.getUid());
+        startService(locationIntent);
+        Log.d("user", user.getDisplayName());
         SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
         prefs.edit().putString("linkup.geese.io.loggedin", user.getUid()).apply();
-        startActivity(new Intent(this, ProfileActivity.class));
+        Intent profileIntent = new Intent(this, ProfileActivity.class);
+        profileIntent.putExtra("name", user.getDisplayName());
+        profileIntent.putExtra("email", user.getEmail());
+        profileIntent.putExtra("UID", user.getUid());
+        profileIntent.putExtra("userId", user.getUid());
+        startActivity(profileIntent);
         finish();
     }
 
