@@ -24,6 +24,14 @@ public class User {
 
     public User(String mUserId,
                 String mFirstName,
+                String mLastName) {
+        this.mUserId = mUserId;
+        this.mFirstName = mFirstName;
+        this.mLastName = mLastName;
+    }
+
+    public User(String mUserId,
+                String mFirstName,
                 String mLastName,
                 UserType mType,
                 Map<String, Proficiency> mSkills,

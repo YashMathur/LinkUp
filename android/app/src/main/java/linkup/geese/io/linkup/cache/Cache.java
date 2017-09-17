@@ -110,8 +110,9 @@ public class Cache {
         }
     }
 
-    public void setLocation(Integer userId, @NonNull Location location){
-        Cache.mInstance.mDbRef.child(userId.toString()).child("mLocation").setValue(location);
+    public void setLocation(String userId, @NonNull Location location){
+        Log.e("location", userId.toString());
+        Cache.mInstance.mDbRef.child(userId).child("mLocation").setValue(location);
     }
 
 }
