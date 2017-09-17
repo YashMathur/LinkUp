@@ -1,6 +1,8 @@
 package linkup.geese.io.linkup;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -134,7 +136,10 @@ public class SignInActivity extends AppCompatActivity  {
 
     private void updateUI(FirebaseUser user) {
         Log.d("user", user.getUid());
-        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
+        SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
+        prefs.edit().putString("linkup.geese.io.loggedin", user.getUid()).apply();
+        startActivity(new Intent(this, ProfileActivity.class));
+        finish();
     }
 
     public void toDashBoard(View v) {

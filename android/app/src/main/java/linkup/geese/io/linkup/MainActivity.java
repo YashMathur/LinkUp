@@ -1,6 +1,8 @@
 package linkup.geese.io.linkup;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -66,9 +68,15 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
 //        cache.getUser(0);
 
 //        cache.setLocation(0, new Location(32.232325D, 64.235, Calendar.getInstance().getTimeInMillis()));
-
-        startActivity(new Intent(this, SignInActivity.class));
-        finish();
+        SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
+        String loggedIn = prefs.getString("linkup.geese.io.loggedin", "out");
+        if (!loggedIn.equals("out")) {
+            startActivity(new Intent(this, ProfileActivity.class));
+            finish();
+        } else {
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+        }
     }
 
 
