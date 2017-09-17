@@ -55,6 +55,6 @@ public class ProfileFragment extends Fragment implements IDataLoadedCallable {
 
     @Override
     public void onFirebaseLinkLoaded(Link link) {
-        
+
     }
 }

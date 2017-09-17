@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity implements IDataLoadedCallab
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        Intent locationIntent = new Intent(this, PutLocationService.class);
-        locationIntent.putExtra(KEY_USERID, "1");
-        startService(locationIntent);
 
         SharedPreferences prefs = this.getSharedPreferences("linkup.geese.io", Context.MODE_PRIVATE);
         String loggedIn = prefs.getString("linkup.geese.io.loggedin", "out");
         if (!loggedIn.equals("out")) {
+            Intent locationIntent = new Intent(this, PutLocationService.class);
+            locationIntent.putExtra(KEY_USERID, loggedIn);
+            startService(locationIntent);
             startActivity(new Intent(this, DashboardActivity.class));
             finish();
         } else {

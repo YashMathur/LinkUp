@@ -25,7 +25,7 @@ import linkup.geese.io.linkup.data.User;
 public class PutLocationService extends Service implements IDataLoadedCallable, LocationListener {
 
     linkup.geese.io.linkup.data.Location currentLocation = null;
-    int userId;
+    String userId;
 
     private final LocationListener mLocationListener = new LocationListener() {
         @Override
@@ -61,7 +61,7 @@ public class PutLocationService extends Service implements IDataLoadedCallable, 
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        userId = intent.getIntExtra(MainActivity.KEY_USERID, -1);
+        userId = intent.getStringExtra(MainActivity.KEY_USERID);
 
         LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         Log.d("put location", "started");
