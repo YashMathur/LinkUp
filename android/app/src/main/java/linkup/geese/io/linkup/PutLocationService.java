@@ -33,8 +33,7 @@ public class PutLocationService extends Service implements IDataLoadedCallable, 
         @Override
         public void onLocationChanged(final Location location) {
 //            Toast.makeText( getApplicationContext(), "Location changed", Toast.LENGTH_SHORT ).show();
-            currentLocation = new linkup.geese.io.linkup.data.Location(location.getLongitude(), location.getLatitude(), java.util.Calendar.getInstance().getTimeInMillis());
-            Log.d("new location", currentLocation.getmLatitude().toString());
+            currentLocation = new linkup.geese.io.linkup.data.Location(43.4727525, -80.5401467, java.util.Calendar.getInstance().getTimeInMillis());
             Cache cache = Cache.getInstance(PutLocationService.this);
 
             cache.setLocation(userId, currentLocation);
@@ -82,7 +81,7 @@ public class PutLocationService extends Service implements IDataLoadedCallable, 
         }
         mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, mLocationListener);
         GPSTracker gps = new GPSTracker(this);
-        currentLocation = new linkup.geese.io.linkup.data.Location(gps.getLongitude(), gps.getLatitude(), Calendar.getInstance().getTimeInMillis());
+        currentLocation = new linkup.geese.io.linkup.data.Location(43.4727525, -80.5401467, Calendar.getInstance().getTimeInMillis());
         Cache cache = Cache.getInstance(this);
         cache.setLocation(userId, currentLocation);
 
