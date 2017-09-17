@@ -31,8 +31,34 @@ function getD(
   return d;
 }
 
-function calculateMatch() {
-  return 69;
+function matchSkill(level) {
+  switch (level) {
+    case 'HIGH': {
+      return 3;
+    }
+
+    case 'MEDIUM': {
+      return 2;
+    }
+
+    case 'LOW': {
+      return 1;
+    }
+
+    default: {
+      return 0;
+    }
+  }
+}
+
+function calculateMatch(recruiter, candidate) {
+  const recruiterSkills = Object.keys(recruiter.mSkills);
+  const metaScore = recruiterSkills.reduce((memo, skill) => {
+    return memo + matchSkill(candidate.mSkills[skill]);
+  }, 0);
+
+  const percentage = metaScore / (recruiterSkills.length * 3);
+  return percentage.toFixed(2);
 }
 
 function updateMatches(req, res) {
@@ -82,7 +108,8 @@ function updateMatches(req, res) {
             [linkHash]: {
               createdAt: Date.now(),
               recruiter,
-              candidate
+              candidate,
+              matched
             }
           });
 
