@@ -56,8 +56,8 @@
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/p_fragment_container"
         android:layout_marginTop="29dp"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="0dp"
+        android:layout_height="0dp">
     </FrameLayout>
 
 

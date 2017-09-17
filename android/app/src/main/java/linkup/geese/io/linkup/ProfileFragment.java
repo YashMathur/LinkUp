@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import linkup.geese.io.linkup.cache.Cache;
 import linkup.geese.io.linkup.cache.IDataLoadedCallable;
@@ -49,7 +50,7 @@ public class ProfileFragment extends Fragment implements IDataLoadedCallable {
 
     @Override
     public void onFirebaseLoaded(User user) {
-        // pass
+        ((TextView) this.mView.findViewById(R.id.pf_name)).setText(user.getFirstName() + " " + user.getLastName());
     }
 
     @Override

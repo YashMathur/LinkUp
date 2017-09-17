@@ -1,6 +1,7 @@
 package linkup.geese.io.linkup;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -49,7 +50,14 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new DashboarAdapter(dataModel);
+        Integer[] images = {
+            R.mipmap.girl1252995_1280,
+            R.mipmap.girl1252995_12802,
+            R.mipmap.girl1252995_12803
+        };
+
+
+        mAdapter = new DashboarAdapter(dataModel, images, this);
         recyclerView.setAdapter(mAdapter);
 
 
@@ -59,6 +67,11 @@ public class DashboardActivity extends AppCompatActivity implements IDataLoadedC
 
     }
 
+    public void openProfile(String userId){
+        Intent i = new Intent(this, ProfileActivity.class);
+        i.putExtra("userId", userId);
+        startActivity(i);
+    }
 
     public void toProfile(View v) {
         startActivity(new Intent(this, ProfileActivity.class));

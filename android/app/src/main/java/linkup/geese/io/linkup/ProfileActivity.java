@@ -16,7 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         this.actionBar = getSupportActionBar();
         this.actionBar.hide();
-        this.getSupportFragmentManager().beginTransaction().add(R.id.p_fragment_container, ProfileFragment.newInstance("0")).commit();
+        this.getSupportFragmentManager().beginTransaction().add(R.id.p_fragment_container, ProfileFragment.newInstance(getIntent().getStringExtra("userId"))).commit();
     }
 
     public void goBack(View v) {
